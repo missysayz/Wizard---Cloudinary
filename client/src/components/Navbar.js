@@ -50,7 +50,14 @@ class Navbar extends React.Component {
               active={this.props.location.pathname === '/'}
             />
           </Link>
-          { this.rightNavItems() }
+          <Link to='/profile'>
+            <Menu.Item
+              name='Profile'
+              id='profile'
+              active={this.props.location.pathname === '/profile'}
+            />
+          </Link>
+          {this.rightNavItems()}
         </Menu>
       </div>
     )
@@ -61,7 +68,7 @@ export class ConnectedNavbar extends React.Component {
   render() {
     return (
       <AuthConsumer>
-        { auth =>
+        {auth =>
           <Navbar {...this.props} auth={auth} />
         }
       </AuthConsumer>
